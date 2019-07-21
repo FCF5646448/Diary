@@ -20,6 +20,8 @@
 		19157FC722E3992000CD4EB5 /* StoryListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19157FC522E3992000CD4EB5 /* StoryListVC.xib */; };
 		19157FCA22E443DC00CD4EB5 /* StoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19157FC822E443DC00CD4EB5 /* StoryListCell.swift */; };
 		19157FCB22E443DC00CD4EB5 /* StoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19157FC922E443DC00CD4EB5 /* StoryListCell.xib */; };
+		19157FCE22E45ADE00CD4EB5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19157FCC22E45ADD00CD4EB5 /* Realm.framework */; };
+		19157FCF22E45ADE00CD4EB5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19157FCD22E45ADD00CD4EB5 /* RealmSwift.framework */; };
 		31078BFC22D98B910097A126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31078BFB22D98B910097A126 /* AppDelegate.swift */; };
 		31078BFE22D98B910097A126 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31078BFD22D98B910097A126 /* ViewController.swift */; };
 		31078C0122D98B910097A126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31078BFF22D98B910097A126 /* Main.storyboard */; };
@@ -72,6 +74,8 @@
 		19157FC522E3992000CD4EB5 /* StoryListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryListVC.xib; sourceTree = "<group>"; };
 		19157FC822E443DC00CD4EB5 /* StoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListCell.swift; sourceTree = "<group>"; };
 		19157FC922E443DC00CD4EB5 /* StoryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryListCell.xib; sourceTree = "<group>"; };
+		19157FCC22E45ADD00CD4EB5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		19157FCD22E45ADD00CD4EB5 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		31078BF822D98B910097A126 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31078BFB22D98B910097A126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31078BFD22D98B910097A126 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19157FCE22E45ADE00CD4EB5 /* Realm.framework in Frameworks */,
+				19157FCF22E45ADE00CD4EB5 /* RealmSwift.framework in Frameworks */,
 				31078C7022D9A9070097A126 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +347,8 @@
 		31078C6C22D9997D0097A126 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19157FCC22E45ADD00CD4EB5 /* Realm.framework */,
+				19157FCD22E45ADD00CD4EB5 /* RealmSwift.framework */,
 				31078C6F22D9A9060097A126 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
@@ -429,6 +437,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputFileListPaths = (
 			);

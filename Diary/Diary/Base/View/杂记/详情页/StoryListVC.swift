@@ -38,6 +38,7 @@ class StoryListVC: FCFBaseViewController {
     
     var topView:UIView!
     var leftBtn:UIButton!
+    var rightBtn:UIButton!
     
     var imageView: UIImageView! // 图片视图
     let imageViewHeight: CGFloat = kNavBarHeight + 200 // 图片默认高度
@@ -95,6 +96,7 @@ class StoryListVC: FCFBaseViewController {
         view.addSubview(self.addBtn)
         view.bringSubviewToFront(self.topView)
         view.bringSubviewToFront(self.leftBtn)
+        view.bringSubviewToFront(self.rightBtn)
         view.bringSubviewToFront(self.addBtn)
         
     }
@@ -128,7 +130,7 @@ class StoryListVC: FCFBaseViewController {
         view.addSubview(leftBtn)
         
         
-        let rightBtn = UIButton(frame: CGRect(x: WIDTH - 44 - 10, y: kNavBarHeight - 44, width: 44, height: 44))
+        rightBtn = UIButton(frame: CGRect(x: WIDTH - 44 - 10, y: kNavBarHeight - 44, width: 44, height: 44))
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         rightBtn.setTitle("删除", for: .normal)
         rightBtn.setTitleColor(UIColor.white, for: .normal)
@@ -152,7 +154,7 @@ class StoryListVC: FCFBaseViewController {
     }
     
     @objc func addBtnAction() {
-        let vc = DiaryEditVC()
+        let vc = DiaryEditVC(.story)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

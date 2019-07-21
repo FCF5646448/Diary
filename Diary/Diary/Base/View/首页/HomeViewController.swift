@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class HomeViewController: FCFBaseViewController {
     
@@ -66,7 +67,7 @@ class HomeViewController: FCFBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        searchTallyHistory()
     }
     
 }
@@ -104,88 +105,69 @@ extension HomeViewController {
         view.addSubview(self.hint)
         
     }
+
     
-    func createTaskData() {
-        
+//    从数据库获取数据
+    func searchTallyHistory() {
+        self.dataSource.removeAll()
+        self.originData.removeAll()
+        // 获取所有的记录
+        let realm = try! Realm()
+        let allRecord:Results<DiaryItemModel> = realm.objects(DiaryItemModel.self)
+        if allRecord.count > 0 {
+            for item in allRecord {
+                self.originData.append(item)
+            }
+        }
+        // 按时间排序
+        self.originData.sort { (elem0, emem1) -> Bool in
+            return elem0.time > emem1.time
+        }
+
+        // 有哪些月份、日期
+        var monthList:[String] = []
+        for item in self.originData {
+            let m = timeToMStr(TimeInterval(item.time))
+            if !monthList.contains(m) {
+                monthList.append(m)
+            }
+        }
+
+        for m in monthList {
+            let mItem = MonthDiaryModel()
+            mItem.monthStr = m
+            var tempM = [DiaryItemModel]()
+            for dItem in self.originData {
+                let dstr = timeToDStr(TimeInterval(dItem.time))
+                if dstr.contains(m) {
+                    tempM.append(dItem)
+                }
+            }
+            mItem.list = tempM
+            self.dataSource.append(mItem)
+        }
+
+        if self.dataSource.count > 0 {
+            self.hint.isHidden = true
+        }else{
+            self.hint.isHidden = false
+        }
+
+        collectionView.reloadData()
     }
-    
-    //从数据库获取数据
-//    func searchTallyHistory() {
-//        self.dataSource.removeAll()
-//        self.originData.removeAll()
-//        // 获取所有的记录
-//        let realm = try! Realm()
-//        let allRecord:Results<CostItemModel> = realm.objects(CostItemModel.self)
-//        if allRecord.count > 0 {
-//            for item in allRecord {
-//                self.originData.append(item)
-//            }
-//        }
-//        // 按时间排序
-//        self.originData.sort { (elem0, emem1) -> Bool in
-//            return elem0.time > emem1.time
-//        }
-//
-//        // 有哪些月份、日期
-//        var monthList:[String] = []
-//        var dayList:[String] = []
-//        for item in self.originData {
-//            let m = timeToMStr(item.time)
-//            if !monthList.contains(m) {
-//                monthList.append(m)
-//            }
-//            let d = timeToDStr(item.time)
-//            if !dayList.contains(d) {
-//                dayList.append(d)
-//            }
-//        }
-//
-//        for m in monthList {
-//            let mItem = MonthCostModel()
-//            mItem.monthStr = m
-//            var tempM = [DayCostItemModel]()
-//            var tempMMoney:Double = 0.0
-//            for d in dayList {
-//                let dItem = DayCostItemModel()
-//                dItem.dayStr = d
-//                var tempD = [CostItemModel]()
-//                var tempDMoney:Double = 0.0
-//                for item in self.originData {
-//                    let dstr = timeToDStr(item.time)
-//                    if dstr == d {
-//                        tempDMoney += Double(item.price) ?? 0.0
-//                        tempD.append(item)
-//                    }
-//                }
-//                dItem.list = tempD
-//                dItem.totalMoney = tempDMoney
-//                if dItem.dayStr.contains(m) {
-//                    tempMMoney += dItem.totalMoney
-//                    tempM.append(dItem)
-//                }
-//            }
-//            mItem.list = tempM
-//            mItem.totalMoney = tempMMoney
-//
-//            self.dataSource.append(mItem)
-//        }
-//
-//        if self.dataSource.count > 0 {
-//            self.hintLabel.isHidden = true
-//        }else{
-//            self.hintLabel.isHidden = false
-//        }
-//
-//        collectionView.reloadData()
-//    }
     
 }
 
 extension HomeViewController {
     @objc func addBtnAction() {
-        let vc = DiaryEditVC()
+        
+        let vc = DiaryEditVC(.diary)
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = DiaryEditVC()
+//        vc.hidesBottomBarWhenPushed = true
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -209,12 +191,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:HomeItemCell = collectionView.dequeueReusableCell(HomeItemCell.self, indexPath: indexPath)
         if indexPath.section < self.dataSource.count {
-//            let m = self.dataSource[indexPath.section]
-//            if indexPath.item < m.list.count {
-//                let d = m.list[indexPath.item]
-//                cell.moneyL.text = String(format: "￥ %.2f", d.totalMoney)
-//                cell.timeL.text = d.dayStr
-//            }
+            let m = self.dataSource[indexPath.section]
+            if indexPath.item < m.list.count {
+                let d = m.list[indexPath.item]
+                cell.detailL.text = d.detail
+                cell.titleL.text = d.title
+                cell.timeL.text = timeToDStr(TimeInterval(d.time))
+            }
         }
         return cell
     }
@@ -235,8 +218,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 header.addSubview(lb)
                 tempL = lb
             }
-//            let m = self.dataSource[indexPath.section]
-            tempL.text = "月"//m.monthStr
+            let m = self.dataSource[indexPath.section]
+            tempL.text = m.monthStr
             return header
         }
         return UICollectionReusableView()
@@ -244,21 +227,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let vc = DiaryEditVC()
-        
-//
-//        if indexPath.section < self.dataSource.count {
-//            let m = self.dataSource[indexPath.section]
-//            if indexPath.item < m.list.count {
-//                let d = m.list[indexPath.item]
-//                vc.dayStr = d.dayStr
-//            }
-//        }
-//
-        vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
-        
+        if indexPath.section < self.dataSource.count {
+            let m = self.dataSource[indexPath.section]
+            if indexPath.item < m.list.count {
+                let d = m.list[indexPath.item]
+                
+                let vc = DiaryEditVC(.diary, d)
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }
 
