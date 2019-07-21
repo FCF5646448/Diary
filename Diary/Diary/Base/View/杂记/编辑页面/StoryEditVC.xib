@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryEditVC" customModule="Diary" customModuleProvider="target">
             <connections>
                 <outlet property="desTF" destination="s2t-SJ-U0T" id="UyQ-Tg-zyw"/>
+                <outlet property="screenImg" destination="ezl-Gd-CBg" id="qwU-Qz-WDU"/>
                 <outlet property="titleTF" destination="K5E-uo-S4t" id="9hl-jd-KYA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ezl-Gd-CBg">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="ezl-Gd-CBg">
                     <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                     <gestureRecognizers/>
                     <constraints>
@@ -100,11 +101,10 @@
                         <constraint firstItem="s2t-SJ-U0T" firstAttribute="leading" secondItem="bHa-3v-ztY" secondAttribute="trailing" constant="20" id="vSN-Jm-MlV"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="点击图片随机切换封面" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfo-BP-fbh">
-                    <rect key="frame" x="279" y="58" width="123" height="15"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击图片随机切换封面" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfo-BP-fbh">
+                    <rect key="frame" x="271" y="49" width="123" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -117,10 +117,12 @@
                 <constraint firstItem="0KU-mv-fqe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="A0N-bX-K7h"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="43x-iB-Hk1" secondAttribute="trailing" id="EtY-xn-bZ7"/>
                 <constraint firstItem="wlr-eI-amN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KSZ-il-LGd"/>
+                <constraint firstItem="Vfo-BP-fbh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="Njx-5F-aN5"/>
                 <constraint firstItem="0KU-mv-fqe" firstAttribute="top" secondItem="wlr-eI-amN" secondAttribute="bottom" id="OSj-VW-MGN"/>
                 <constraint firstItem="ezl-Gd-CBg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QAN-BJ-4m6"/>
                 <constraint firstItem="43x-iB-Hk1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eR3-Rw-WZI"/>
                 <constraint firstItem="0KU-mv-fqe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="hCF-Qu-QV6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vfo-BP-fbh" secondAttribute="trailing" constant="20" id="pLw-NW-Wro"/>
                 <constraint firstItem="43x-iB-Hk1" firstAttribute="top" secondItem="ezl-Gd-CBg" secondAttribute="bottom" id="rqD-M4-vRT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -132,4 +134,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="001" width="457" height="320"/>
+    </resources>
 </document>
