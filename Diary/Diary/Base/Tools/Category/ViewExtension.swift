@@ -255,5 +255,35 @@ extension UIView {
             self.addSubview(imgView)
         }
     }
+    
+    //四周添加阴影
+    func addAllShadow(shadowRadius: CGFloat, shadowColor:CGColor, offset:CGSize = CGSize(width: 0, height: 0),opacity:Float = 0.9) {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = offset
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowColor = shadowColor
+        
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [UIRectCorner.topLeft,.bottomLeft], cornerRadii: CGSize(width: 10, height: 10))
+        self.layer.shadowPath = path.cgPath
+    }
+    
+    //三周添加阴影
+    func addThreeShadow(shadowRadius: CGFloat, shadowColor:CGColor, offset:CGSize = CGSize(width: 0, height: 0),opacity:Float = 0.9) {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = offset
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowColor = shadowColor
+        
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: shadowRadius))
+        path.addLine(to: CGPoint(x: 0, y: self.bounds.size.height))
+        path.addLine(to: CGPoint(x: self.bounds.size.width, y: self.bounds.size.height))
+        path.addLine(to: CGPoint(x: self.bounds.size.width, y: 8))
+        path.addLine(to: CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.9))
+        path.close()
+        self.layer.shadowPath = path.cgPath
+    }
 
 }

@@ -11,13 +11,14 @@ import UIKit
 class HomeItemCell: UICollectionViewCell {
 
     @IBOutlet weak var cardBg: UIView!
-    @IBOutlet weak var moneyL: UILabel!
+    @IBOutlet weak var titleL: UILabel!
+    @IBOutlet weak var detailL: UILabel!
     @IBOutlet weak var timeL: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cardBg.backgroundColor = UIColor.randomColor()
+        cardBg.backgroundColor = UIColor.randomColor().withAlphaComponent(0.6)
         
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true

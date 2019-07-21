@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1914EB7D22E356B400B8D126 /* DiaryEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1914EB7B22E356B400B8D126 /* DiaryEditVC.swift */; };
+		1914EB7E22E356B400B8D126 /* DiaryEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1914EB7C22E356B400B8D126 /* DiaryEditVC.xib */; };
+		1914EB8122E356C800B8D126 /* StoryEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1914EB7F22E356C800B8D126 /* StoryEditVC.swift */; };
+		1914EB8222E356C800B8D126 /* StoryEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1914EB8022E356C800B8D126 /* StoryEditVC.xib */; };
+		19157FB222E37D6400CD4EB5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19157FB122E37D6400CD4EB5 /* Model.swift */; };
+		19157FB922E38A9800CD4EB5 /* XCWaterCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19157FB522E38A9800CD4EB5 /* XCWaterCollectionViewLayout.m */; };
+		19157FBA22E38A9800CD4EB5 /* XCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19157FB822E38A9800CD4EB5 /* XCollectionViewLayout.m */; };
+		19157FC122E38CE400CD4EB5 /* ReadItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19157FBF22E38CE400CD4EB5 /* ReadItemCell.swift */; };
+		19157FC222E38CE400CD4EB5 /* ReadItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19157FC022E38CE400CD4EB5 /* ReadItemCell.xib */; };
+		19157FC622E3992000CD4EB5 /* StoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19157FC422E3992000CD4EB5 /* StoryListVC.swift */; };
+		19157FC722E3992000CD4EB5 /* StoryListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19157FC522E3992000CD4EB5 /* StoryListVC.xib */; };
+		19157FCA22E443DC00CD4EB5 /* StoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19157FC822E443DC00CD4EB5 /* StoryListCell.swift */; };
+		19157FCB22E443DC00CD4EB5 /* StoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19157FC922E443DC00CD4EB5 /* StoryListCell.xib */; };
 		31078BFC22D98B910097A126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31078BFB22D98B910097A126 /* AppDelegate.swift */; };
 		31078BFE22D98B910097A126 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31078BFD22D98B910097A126 /* ViewController.swift */; };
 		31078C0122D98B910097A126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31078BFF22D98B910097A126 /* Main.storyboard */; };
@@ -43,6 +56,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1914EB7B22E356B400B8D126 /* DiaryEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditVC.swift; sourceTree = "<group>"; };
+		1914EB7C22E356B400B8D126 /* DiaryEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryEditVC.xib; sourceTree = "<group>"; };
+		1914EB7F22E356C800B8D126 /* StoryEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryEditVC.swift; sourceTree = "<group>"; };
+		1914EB8022E356C800B8D126 /* StoryEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryEditVC.xib; sourceTree = "<group>"; };
+		19157FB122E37D6400CD4EB5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		19157FB522E38A9800CD4EB5 /* XCWaterCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCWaterCollectionViewLayout.m; sourceTree = "<group>"; };
+		19157FB622E38A9800CD4EB5 /* XCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCollectionViewLayout.h; sourceTree = "<group>"; };
+		19157FB722E38A9800CD4EB5 /* XCWaterCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCWaterCollectionViewLayout.h; sourceTree = "<group>"; };
+		19157FB822E38A9800CD4EB5 /* XCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCollectionViewLayout.m; sourceTree = "<group>"; };
+		19157FBE22E38B3B00CD4EB5 /* Diary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diary-Bridging-Header.h"; sourceTree = "<group>"; };
+		19157FBF22E38CE400CD4EB5 /* ReadItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadItemCell.swift; sourceTree = "<group>"; };
+		19157FC022E38CE400CD4EB5 /* ReadItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadItemCell.xib; sourceTree = "<group>"; };
+		19157FC422E3992000CD4EB5 /* StoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListVC.swift; sourceTree = "<group>"; };
+		19157FC522E3992000CD4EB5 /* StoryListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryListVC.xib; sourceTree = "<group>"; };
+		19157FC822E443DC00CD4EB5 /* StoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListCell.swift; sourceTree = "<group>"; };
+		19157FC922E443DC00CD4EB5 /* StoryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryListCell.xib; sourceTree = "<group>"; };
 		31078BF822D98B910097A126 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31078BFB22D98B910097A126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31078BFD22D98B910097A126 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +121,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19134D0322E2ABDA00698AB6 /* 编辑页 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "编辑页";
+			sourceTree = "<group>";
+		};
+		1914EB7922E3565F00B8D126 /* 编辑页 */ = {
+			isa = PBXGroup;
+			children = (
+				1914EB7B22E356B400B8D126 /* DiaryEditVC.swift */,
+				1914EB7C22E356B400B8D126 /* DiaryEditVC.xib */,
+			);
+			path = "编辑页";
+			sourceTree = "<group>";
+		};
+		1914EB7A22E3567300B8D126 /* 编辑页面 */ = {
+			isa = PBXGroup;
+			children = (
+				1914EB7F22E356C800B8D126 /* StoryEditVC.swift */,
+				1914EB8022E356C800B8D126 /* StoryEditVC.xib */,
+			);
+			path = "编辑页面";
+			sourceTree = "<group>";
+		};
+		19157FB022E37D5000CD4EB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19157FB122E37D6400CD4EB5 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19157FB322E38A6800CD4EB5 /* ThirdPackage */ = {
+			isa = PBXGroup;
+			children = (
+				19157FB422E38A9800CD4EB5 /* XCollectionViewLayout */,
+			);
+			path = ThirdPackage;
+			sourceTree = "<group>";
+		};
+		19157FB422E38A9800CD4EB5 /* XCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				19157FB522E38A9800CD4EB5 /* XCWaterCollectionViewLayout.m */,
+				19157FB622E38A9800CD4EB5 /* XCollectionViewLayout.h */,
+				19157FB722E38A9800CD4EB5 /* XCWaterCollectionViewLayout.h */,
+				19157FB822E38A9800CD4EB5 /* XCollectionViewLayout.m */,
+			);
+			path = XCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		19157FC322E398D500CD4EB5 /* 详情页 */ = {
+			isa = PBXGroup;
+			children = (
+				19157FC422E3992000CD4EB5 /* StoryListVC.swift */,
+				19157FC522E3992000CD4EB5 /* StoryListVC.xib */,
+				19157FC822E443DC00CD4EB5 /* StoryListCell.swift */,
+				19157FC922E443DC00CD4EB5 /* StoryListCell.xib */,
+			);
+			path = "详情页";
+			sourceTree = "<group>";
+		};
 		31078BEF22D98B910097A126 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +204,7 @@
 		31078BFA22D98B910097A126 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				19157FBE22E38B3B00CD4EB5 /* Diary-Bridging-Header.h */,
 				31078C0D22D98BCC0097A126 /* Base */,
 				31078BFB22D98B910097A126 /* AppDelegate.swift */,
 				31078BFD22D98B910097A126 /* ViewController.swift */,
@@ -137,6 +230,7 @@
 		31078C0E22D98BCC0097A126 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				19157FB322E38A6800CD4EB5 /* ThirdPackage */,
 				31078C0F22D98BCC0097A126 /* Category */,
 				31078C1F22D98BCC0097A126 /* Other */,
 				31078C2222D98BCC0097A126 /* custom */,
@@ -194,6 +288,8 @@
 		31078C2522D98BCC0097A126 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				19157FB022E37D5000CD4EB5 /* Model */,
+				19134D0322E2ABDA00698AB6 /* 编辑页 */,
 				31078C2622D98BCC0097A126 /* 首页 */,
 				31078C3A22D98BCC0097A126 /* 杂记 */,
 			);
@@ -203,6 +299,7 @@
 		31078C2622D98BCC0097A126 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				1914EB7922E3565F00B8D126 /* 编辑页 */,
 				31078C2722D98BCC0097A126 /* HomeItemCell.swift */,
 				31078C2822D98BCC0097A126 /* HomeItemCell.xib */,
 				31078C2922D98BCC0097A126 /* HomeViewController.swift */,
@@ -213,7 +310,11 @@
 		31078C3A22D98BCC0097A126 /* 杂记 */ = {
 			isa = PBXGroup;
 			children = (
+				19157FC322E398D500CD4EB5 /* 详情页 */,
+				1914EB7A22E3567300B8D126 /* 编辑页面 */,
 				31078C3B22D98BCC0097A126 /* ReadViewController.swift */,
+				19157FBF22E38CE400CD4EB5 /* ReadItemCell.swift */,
+				19157FC022E38CE400CD4EB5 /* ReadItemCell.xib */,
 			);
 			path = "杂记";
 			sourceTree = "<group>";
@@ -304,9 +405,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1914EB8222E356C800B8D126 /* StoryEditVC.xib in Resources */,
 				31078C0622D98B930097A126 /* LaunchScreen.storyboard in Resources */,
 				31078C5622D98BCC0097A126 /* HomeItemCell.xib in Resources */,
+				1914EB7E22E356B400B8D126 /* DiaryEditVC.xib in Resources */,
 				31078C0322D98B930097A126 /* Assets.xcassets in Resources */,
+				19157FCB22E443DC00CD4EB5 /* StoryListCell.xib in Resources */,
+				19157FC222E38CE400CD4EB5 /* ReadItemCell.xib in Resources */,
+				19157FC722E3992000CD4EB5 /* StoryListVC.xib in Resources */,
 				31078C0122D98B910097A126 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +449,7 @@
 				31078C4922D98BCC0097A126 /* NotificationNameExtension.swift in Sources */,
 				31078BFE22D98B910097A126 /* ViewController.swift in Sources */,
 				31078C4F22D98BCC0097A126 /* NavigationExtension.swift in Sources */,
+				1914EB7D22E356B400B8D126 /* DiaryEditVC.swift in Sources */,
 				31078C5122D98BCC0097A126 /* TextFieldExtension.swift in Sources */,
 				31078C4722D98BCC0097A126 /* UIColorExtension.swift in Sources */,
 				31078C5022D98BCC0097A126 /* StringExtension.swift in Sources */,
@@ -352,8 +459,12 @@
 				31078C4622D98BCC0097A126 /* UIImageViewExtension.swift in Sources */,
 				31078C4A22D98BCC0097A126 /* ArrayExtension.swift in Sources */,
 				31078C6822D98BCC0097A126 /* FCFNavigationController.swift in Sources */,
+				19157FC622E3992000CD4EB5 /* StoryListVC.swift in Sources */,
+				19157FC122E38CE400CD4EB5 /* ReadItemCell.swift in Sources */,
 				31078C6522D98BCC0097A126 /* ReadViewController.swift in Sources */,
 				31078C4D22D98BCC0097A126 /* TextViewExtension.swift in Sources */,
+				19157FB222E37D6400CD4EB5 /* Model.swift in Sources */,
+				1914EB8122E356C800B8D126 /* StoryEditVC.swift in Sources */,
 				31078C5422D98BCC0097A126 /* WaveView.swift in Sources */,
 				31078C6A22D98BCC0097A126 /* DataSource.swift in Sources */,
 				31078C6622D98BCC0097A126 /* FCFTabBarController.swift in Sources */,
@@ -362,11 +473,14 @@
 				31078C4422D98BCC0097A126 /* DeviceExtension.swift in Sources */,
 				31078C4B22D98BCC0097A126 /* DateExtenstion.swift in Sources */,
 				31078C4E22D98BCC0097A126 /* ViewExtension.swift in Sources */,
+				19157FBA22E38A9800CD4EB5 /* XCollectionViewLayout.m in Sources */,
 				31078BFC22D98B910097A126 /* AppDelegate.swift in Sources */,
+				19157FB922E38A9800CD4EB5 /* XCWaterCollectionViewLayout.m in Sources */,
 				31078C6922D98BCC0097A126 /* ConfigData.swift in Sources */,
 				31078C5522D98BCC0097A126 /* HomeItemCell.swift in Sources */,
 				31078C4322D98BCC0097A126 /* UIButtonExtension.swift in Sources */,
 				31078C4C22D98BCC0097A126 /* CellExtension.swift in Sources */,
+				19157FCA22E443DC00CD4EB5 /* StoryListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +640,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcf.test.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Diary/Diary-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -549,6 +664,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcf.test.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Diary/Diary-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
