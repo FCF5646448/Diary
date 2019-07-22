@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class StoryEditVC: FCFBaseViewController {
     @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var desTF: UITextView!
     @IBOutlet weak var screenImg: UIImageView!
+    @IBOutlet weak var desPlaceHolder: UILabel!
     
-    var tvplacehold:String = "想念一个人，不一定要听到他的声音。想像中的一切，往往比现实稍微美好一点。想念中的那个人，也比现实稍微温暖一点。思念好像是很遥远的一回事，有时却偏偏比现实亲近一点。(不超过70字)"
+    var imgName:String = "000"
+    
+    var itemStory:StoryBookItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,32 +32,92 @@ class StoryEditVC: FCFBaseViewController {
         btn.addTarget(self, action: #selector(saveBtnAction), for: .touchUpInside)
         let baritem = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = baritem
+        
     }
     
     @objc func saveBtnAction() {
         self.view.endEditing(true)
-        
+        // 缓存
+        if (self.titleTF.text != nil && self.titleTF.text!.count > 0) && (self.desTF.text != nil && self.desTF.text!.count > 0) {
+            
+            if self.itemStory != nil {
+                let realm = try! Realm()
+                // 先根据时间查找到数据库中的对象，然后进行修改
+                if let origin = realm.objects(StoryBookItem.self).filter("time ==  \(self.itemStory!.time)").first {
+                    try! realm.write {
+                        origin.title = self.titleTF.text!
+                        origin.des = self.desTF!.text
+                        origin.imgName = self.imgName
+                    }
+                }
+                
+                let alertController = UIAlertController(title: "修改成功!",
+                                                        message: nil, preferredStyle: .alert)
+                self.present(alertController, animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.presentedViewController?.dismiss(animated: false, completion: nil)
+                }
+                return
+            }
+                
+            let itemStory = StoryBookItem()
+            itemStory.title = self.titleTF.text!
+            itemStory.time = Int(currentTimeSecond())
+            itemStory.des = self.desTF!.text
+            itemStory.imgName = self.imgName
+            itemStory.save()
+            
+            self.itemStory = itemStory
+            
+            let alertController = UIAlertController(title: "添加成功!",
+                                                    message: nil, preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.presentedViewController?.dismiss(animated: false, completion: nil)
+            }
+        }else{
+            let alertController = UIAlertController(title: "请确保标题和描述完整",
+                                                    message: nil, preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.presentedViewController?.dismiss(animated: false, completion: nil)
+            }
+        }
     }
     
     
     @IBAction func imgTapAction(_ sender: Any) {
         let x = arc4random() % 26;
         let imgName = String(format: "%03d", x)
-        print(imgName)
+        self.imgName = imgName
         screenImg.image = UIImage(named: imgName)
     }
 }
 
 extension StoryEditVC:UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""
+        self.desPlaceHolder.isHidden = true
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let t = textView.text, t.count > 0{
+            self.desPlaceHolder.isHidden = true
+        }else{
+            self.desPlaceHolder.isHidden = false
+        }
+    }
     
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        return true
+    func textViewDidChange(_ textView: UITextView) {
+        if let des = textView.text, des.count > 60 {
+            let subStr = String(des[..<des.index(before: des.index(des.startIndex, offsetBy: 60))])
+            self.desTF.text = subStr
+            let alertController = UIAlertController(title: "请确保60字以内",
+                                                    message: nil, preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.presentedViewController?.dismiss(animated: false, completion: nil)
+            }
+        }
     }
 }
 

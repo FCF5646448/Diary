@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryEditVC" customModule="Diary" customModuleProvider="target">
             <connections>
+                <outlet property="desPlaceHolder" destination="rhs-qK-SVJ" id="ixQ-QH-FFF"/>
                 <outlet property="desTF" destination="s2t-SJ-U0T" id="UyQ-Tg-zyw"/>
                 <outlet property="screenImg" destination="ezl-Gd-CBg" id="qwU-Qz-WDU"/>
                 <outlet property="titleTF" destination="K5E-uo-S4t" id="9hl-jd-KYA"/>
@@ -23,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="ezl-Gd-CBg">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="ezl-Gd-CBg">
                     <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                     <gestureRecognizers/>
                     <constraints>
@@ -73,7 +74,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KU-mv-fqe">
                     <rect key="frame" x="0.0" y="342" width="414" height="128"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故事集描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHa-3v-ztY">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="故事集描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHa-3v-ztY">
                             <rect key="frame" x="15" y="10" width="82" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="1cc-Do-qyZ"/>
@@ -89,9 +90,17 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填写详情(不超过60字)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhs-qK-SVJ">
+                            <rect key="frame" x="117" y="12" width="156" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.62368720769882202" green="0.62326806783676147" blue="0.63921833038330078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="rhs-qK-SVJ" firstAttribute="leading" secondItem="bHa-3v-ztY" secondAttribute="trailing" constant="20" id="9vX-aB-Chy"/>
+                        <constraint firstItem="rhs-qK-SVJ" firstAttribute="top" secondItem="0KU-mv-fqe" secondAttribute="top" constant="12" id="B2k-8c-SM9"/>
                         <constraint firstItem="bHa-3v-ztY" firstAttribute="top" secondItem="0KU-mv-fqe" secondAttribute="top" constant="10" id="ZCg-rM-pGi"/>
                         <constraint firstItem="s2t-SJ-U0T" firstAttribute="top" secondItem="0KU-mv-fqe" secondAttribute="top" constant="5" id="cXZ-w0-Bvb"/>
                         <constraint firstItem="bHa-3v-ztY" firstAttribute="leading" secondItem="0KU-mv-fqe" secondAttribute="leading" constant="15" id="oPn-hw-4uw"/>

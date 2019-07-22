@@ -60,39 +60,6 @@ class StoryItemModel:Object {
     @objc dynamic var detail:String = ""
     @objc dynamic var time:Int = 0
     @objc dynamic var BookName:String = ""
-//    
-//    
-//    func save() {
-//        let realm = try! Realm()
-//        try! realm.write {
-//            realm.add(self)
-//        }
-//    }
-//    
-//    //修改的话，只能修改正文
-//    func modify(_ detail:String) {
-//        let realm = try! Realm()
-//        // 先根据时间查找到数据库中的对象，然后进行修改
-//        if let origin = realm.objects(DiaryItemModel.self).filter("time ==  \(self.time)").first {
-//            try! realm.write {
-//                origin.detail = detail
-//            }
-//        }
-//    }
-//    
-//    //删除当前对象
-//    func delete(_ complete:((_ result:Bool)->Void)?) {
-//        let realm = try! Realm()
-//        // 先查找到数据库中的对象，然后进行修改
-//        if let origin = realm.objects(DiaryItemModel.self).filter("time ==  \(self.time)").first {
-//            try! realm.write {
-//                realm.delete(origin)
-//            }
-//            complete?(true)
-//        }else{
-//            complete?(false)
-//        }
-//    }
 }
 
 //故事本基础类
@@ -106,17 +73,7 @@ class StoryBookItem: Object {
         let realm = try! Realm()
         try! realm.write {
             realm.add(self)
-        }
-    }
-    
-    //修改的话，只能修改描述
-    func modify(_ des:String) {
-        let realm = try! Realm()
-        // 先根据时间查找到数据库中的对象，然后进行修改
-        if let origin = realm.objects(StoryBookItem.self).filter("time ==  \(self.time)").first {
-            try! realm.write {
-                origin.des = des
-            }
+            print(realm.configuration.fileURL ?? "")
         }
     }
     

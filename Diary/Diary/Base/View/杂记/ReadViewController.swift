@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ReadViewController: FCFBaseViewController {
     var collectView:UICollectionView!
@@ -41,6 +42,11 @@ class ReadViewController: FCFBaseViewController {
         title = "故事集"
         initUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchTallyHistory()
+    }
 }
 
 extension ReadViewController {
@@ -57,7 +63,6 @@ extension ReadViewController {
         layout.transformStyle = .linerTransform
         layout.itemSize = CGSize(width: WIDTH - 50*2.0, height: (HEIGHT - kTabBarHeight - kNavBarHeight - 50*2.0))
         collectView = UICollectionView(frame: CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT - kNavBarHeight - kTabBarHeight), collectionViewLayout: layout)
-//        collectView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 50, right: 0)
         collectView.backgroundColor = UIColor.white
         collectView.delegate = self
         collectView.dataSource = self
@@ -65,6 +70,31 @@ extension ReadViewController {
         view.addSubview(collectView)
         
         view.bringSubviewToFront(self.hint)
+    }
+    
+    //    从数据库获取数据
+    func searchTallyHistory() {
+        self.dataSource.removeAll()
+        // 获取所有的记录
+        let realm = try! Realm()
+        let allRecord:Results<StoryBookItem> = realm.objects(StoryBookItem.self)
+        if allRecord.count > 0 {
+            for item in allRecord {
+                self.dataSource.append(item)
+            }
+        }
+        // 按时间排序
+        self.dataSource.sort { (elem0, emem1) -> Bool in
+            return elem0.time > emem1.time
+        }
+        
+        if self.dataSource.count > 0 {
+            self.hint.isHidden = true
+        }else{
+            self.hint.isHidden = false
+        }
+        
+        collectView.reloadData()
     }
 }
 
@@ -82,17 +112,19 @@ extension ReadViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1//dataSource.count
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:ReadItemCell = collectionView.dequeueReusableCell(ReadItemCell.self, indexPath: indexPath)
         cell.addAllShadow(shadowRadius: 10, shadowColor: UIColor.black.cgColor, offset: CGSize(width: 0, height: 2), opacity: 0.6)
-        if indexPath.section < self.dataSource.count {
-            let m = self.dataSource[indexPath.section]
+        if indexPath.row < self.dataSource.count {
+            let m = self.dataSource[indexPath.row]
             cell.bgImag.image = UIImage(named: m.imgName)
             cell.nameL.text = m.title
             cell.detailL.text = "—— 共\(m.storys.count)集 ——"
+            cell.desL.text =  m.des
+            cell.timeL.text = timeToDStr(TimeInterval(m.time))
         }
         return cell
     }
@@ -100,12 +132,12 @@ extension ReadViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectView.collectionViewLayout.clickCell(at: indexPath) {
             print("click cell at section: \(indexPath.section)  at item: \(indexPath.item)")
-            
-            let vc = StoryListVC()
-            vc.hidesBottomBarWhenPushed = true
-            
-            navigationController?.pushViewController(vc, animated: true)
-            
+            if indexPath.section < self.dataSource.count {
+                let m = self.dataSource[indexPath.section]
+                let vc = StoryListVC(m)
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

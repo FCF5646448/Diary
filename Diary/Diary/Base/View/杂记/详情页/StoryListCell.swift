@@ -19,14 +19,10 @@ class StoryListCell: UITableViewCell {
         super.awakeFromNib()
         self.cardBg.backgroundColor = UIColor.randomColor().withAlphaComponent(0.1)
         
-//        cardBg.addAllShadow(shadowRadius: 10, shadowColor: UIColor.black.cgColor, offset: CGSize(width: 0, height: 2), opacity: 0.6)
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

@@ -161,7 +161,7 @@ extension HomeViewController {
 extension HomeViewController {
     @objc func addBtnAction() {
         
-        let vc = DiaryEditVC(.diary)
+        let vc = DiaryEditVC(.diary,nil,nil,nil)
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
         
@@ -232,7 +232,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if indexPath.item < m.list.count {
                 let d = m.list[indexPath.item]
                 
-                let vc = DiaryEditVC(.diary, d)
+                let vc = DiaryEditVC(.diary, d,nil,nil)
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             }

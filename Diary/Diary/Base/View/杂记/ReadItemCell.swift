@@ -12,6 +12,8 @@ class ReadItemCell: UICollectionViewCell {
     @IBOutlet weak var bgImag: UIImageView!
     @IBOutlet weak var nameL: UILabel!
     @IBOutlet weak var detailL: UILabel!
+    @IBOutlet weak var desL: UILabel!
+    @IBOutlet weak var timeL: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
