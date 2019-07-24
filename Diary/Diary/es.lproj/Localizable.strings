@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by 冯才凡 on 2019/7/23.
+  Copyright © 2019 冯才凡. All rights reserved.
+*/
+"笔记" = "Nota";
+
+"storys" = "Historia";
+
+"homeHint" = "Toda experiencia será una buena memoria para ti. \n Puedes grabar el bit de la vida aquí. \n Abrir el registro ...";
+
+"storyHint" = "Aquí estará lleno de recuerdos y sorpresas, convirtiendo la vida en una pequeña historia, \n almacenada en un libro, recordando lentamente. \n Tengo una historia, ¿tiene vino?";
+
+"保存" = "Guardar";
+"添加" = "Añadir";
+
+
+"故事名称" = "Nombre de la historia";
+"故事描述" = "Descripción de la historia";
+
+"故事名称PH" = "Por ejemplo: notas de amor (no más de 20 palabras)";//例如：恋爱笔记 (不超过20字)
+"故事描述PH" = "Por favor complete los detalles (no más de 60 palabras)";//请填写详情(不超过60字)
+
+"修改成功!" = "La modificación fue exitosa!";
+"添加成功!" = "Añadido con éxito!";
+"请确保标题和描述完整" = "Por favor, asegúrese de que el título y la descripción estén completos";
+"请确保60字以内" = "Por favor asegúrese de estar dentro de 60 palabras";
+"请确保标题和正文完整" = "Por favor, asegúrese de que el título y el cuerpo estén completos";
+
+"DiaryEditTitlePH" = "Título (no más de 30 palabras)"; //标题(不超过30字)
+
+"DiaryEditDesPH" = "Cuerpo"; //正文
+
+"共" = "Total";
+"集" = "Conjunto";
+
+"删除成功!" = "Eliminado con éxito!";
+"删除" = "Eliminar";
+"返回" = "Volver";
+"当前没有任何小故事哦, \n赶紧添加吧..." = "Actualmente no hay historias cortas, \n prisa por agregar ...";
+

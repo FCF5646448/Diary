@@ -132,8 +132,8 @@ extension ReadViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectView.collectionViewLayout.clickCell(at: indexPath) {
             print("click cell at section: \(indexPath.section)  at item: \(indexPath.item)")
-            if indexPath.section < self.dataSource.count {
-                let m = self.dataSource[indexPath.section]
+            if indexPath.row < self.dataSource.count {
+                let m = self.dataSource[indexPath.row]
                 let vc = StoryListVC(m)
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)

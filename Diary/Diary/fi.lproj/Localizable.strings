@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by 冯才凡 on 2019/7/23.
+  Copyright © 2019 冯才凡. All rights reserved.
+*/
+"笔记" = "Huomautuksia";
+
+"storys" = "tarina";
+
+"homeHint" = "Jokainen kokemus on hyvä muisti sinulle.Voit tallentaa elämän vähän täällä...";
+
+"storyHint" = "Täällä on täynnä muistoja ja yllätyksiä, jotka kääntävät elämän hieman tarinaksi, joka on tallennettu kirjaan, hitaasti muistellen?";
+
+"保存" = "Tallenna";
+"添加" = "lisätä";
+
+
+"故事名称" = "Tarinan nimi";
+"故事描述" = "Tarinan kuvaus";
+
+"故事名称PH" = "Esimerkiksi: love notes (enintään 20 sanaa)";//例如：恋爱笔记 (不超过20字)
+"故事描述PH" = "Täytä tiedot (enintään 60 sanaa)";//请填写详情(不超过60字)
+
+"修改成功!" = "Muutos onnistui!";
+"添加成功!" = "Lisätty onnistuneesti!";
+"请确保标题和描述完整" = "Varmista, että otsikko ja kuvaus ovat täydelliset";
+"请确保60字以内" = "Muista olla 60 sanan sisällä";
+"请确保标题和正文完整" = "Varmista, että otsikko ja runko ovat valmiit";
+
+"DiaryEditTitlePH" = "Otsikko (enintään 30 sanaa)"; //标题(不超过30字)
+
+"DiaryEditDesPH" = "teksti"; //正文
+
+"共" = "kokonaan";
+"集" = "kokoelma";
+
+"删除成功!" = "Poistettu onnistuneesti!";
+"删除" = "poistaa";
+"返回" = "paluu";
+"当前没有任何小故事哦, \n赶紧添加吧..." = "Tällä hetkellä ei ole olemassa novelleja...";
+
