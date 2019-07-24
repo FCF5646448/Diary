@@ -55,8 +55,11 @@ class DiaryEditVC: FCFBaseViewController {
 
 extension DiaryEditVC {
     func initUI() {
+        titleTF.placeholder = NSLocalizedString("DiaryEditTitlePH", comment: "DiaryEditTitlePH")
+        detailTVPlacehold.text = NSLocalizedString("DiaryEditDesPH", comment: "DiaryEditDesPH")
+        
         let btn = UIButton(type: .custom)
-        btn.setTitle("保存", for: .normal)
+        btn.setTitle(NSLocalizedString("保存", comment: "保存"), for: .normal)
         btn.addTarget(self, action: #selector(saveBtnAction), for: .touchUpInside)
         let baritem = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = baritem
@@ -118,10 +121,10 @@ extension DiaryEditVC {
                             origin.title = self.titleTF.text!
                             origin.detail = self.detailTV!.text
                         }
-                        let alertController = UIAlertController(title: "修改成功!",
+                        let alertController = UIAlertController(title: NSLocalizedString("修改成功!", comment: "修改成功!"),
                                                                 message: nil, preferredStyle: .alert)
                         self.present(alertController, animated: true, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                             self.presentedViewController?.dismiss(animated: false, completion: nil)
                         }
                     }
@@ -132,10 +135,10 @@ extension DiaryEditVC {
                     itemDiary.time = Int(currentTimeSecond())
                     itemDiary.save()
                     self.diaryItem = itemDiary
-                    let alertController = UIAlertController(title: "添加成功!",
+                    let alertController = UIAlertController(title: NSLocalizedString("添加成功!", comment: "添加成功!"),
                                                             message: nil, preferredStyle: .alert)
                     self.present(alertController, animated: true, completion: nil)
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                         self.presentedViewController?.dismiss(animated: false, completion: nil)
                     }
                 }
@@ -152,10 +155,10 @@ extension DiaryEditVC {
                             origin.title = self.titleTF.text!
                             origin.detail = self.detailTV!.text
                         }
-                        let alertController = UIAlertController(title: "修改成功!",
+                        let alertController = UIAlertController(title: NSLocalizedString("修改成功!", comment: "修改成功!"),
                                                                 message: nil, preferredStyle: .alert)
                         self.present(alertController, animated: true, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                             self.presentedViewController?.dismiss(animated: false, completion: nil)
                         }
                     }
@@ -176,20 +179,20 @@ extension DiaryEditVC {
                             origin.storys.append(itemStory)
                         }
                     }
-                    let alertController = UIAlertController(title: "添加成功!",
+                    let alertController = UIAlertController(title: NSLocalizedString("添加成功!", comment: "添加成功!"),
                                                             message: nil, preferredStyle: .alert)
                     self.present(alertController, animated: true, completion: nil)
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                         self.presentedViewController?.dismiss(animated: false, completion: nil)
                     }
                 }
             }
             
         }else{
-            let alertController = UIAlertController(title: "请确保标题和正文完整",
+            let alertController = UIAlertController(title: NSLocalizedString("请确保标题和正文完整", comment: "请确保标题和正文完整"),
                                                     message: nil, preferredStyle: .alert)
             self.present(alertController, animated: true, completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                 self.presentedViewController?.dismiss(animated: false, completion: nil)
             }
         }

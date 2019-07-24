@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by 冯才凡 on 2019/7/23.
+  Copyright © 2019 冯才凡. All rights reserved.
+*/
+"笔记" = "Hinweis";
+"storys" = "Geschichte";
+
+"homeHint" = "Jede Erfahrung wird eine gute Erinnerung für Sie sein. \nSie können hier ein Stück Leben aufzeichnen. \nÖffnen Sie die Aufzeichnung..";
+
+"storyHint" = "Es wird voller Erinnerungen und Überraschungen sein und das Leben in Geschichten verwandeln. \nLagere es in einem Buch und genieße es langsam. \nIch habe eine Geschichte, hast du Wein?";
+
+"保存" = "Speichern";
+"添加" = "Hinzufügen";
+
+
+"故事名称" = "Name der Geschichte";
+"故事描述" = "Beschreibung der Geschichte";
+
+"故事名称PH" = "Zum Beispiel: Liebesbriefe (nicht mehr als 20 Wörter)";//例如：恋爱笔记 (不超过20字)
+"故事描述PH" = "Bitte geben Sie die Details ein (nicht mehr als 60 Wörter)";//请填写详情(不超过60字)
+
+"修改成功!" = "Erfolgreich geändert!";
+"添加成功!" = "Erfolgreich hinzugefügt!";
+"请确保标题和描述完整" = "Bitte stellen Sie sicher, dass Titel und Beschreibung vollständig sind";
+"请确保60字以内" = "Bitte achten Sie darauf, dass Sie nicht länger als 60 Wörter sind";
+"请确保标题和正文完整" = "Bitte stellen Sie sicher, dass Titel und Text vollständig sind";
+
+"DiaryEditTitlePH" = "Titel (nicht mehr als 30 Wörter)"; //标题(不超过30字)
+
+"DiaryEditDesPH" = "Körper"; //正文
+
+"共" = "total";
+"集" = "einstellen";
+
+"删除成功!" = "Erfolgreich gelöscht!";
+"删除" = "Löschen";
+"返回" = "Rückkehr";
+"当前没有任何小故事哦, \n赶紧添加吧..." = "Derzeit gibt es keine Kurzgeschichten. \n Beeilen Sie sich, um hinzuzufügen ...";

@@ -50,7 +50,7 @@ class HomeViewController: FCFBaseViewController {
         
         let hint = UILabel(frame: CGRect(x: 0, y: imgv.bottom + 10, width: imgW, height: hintH))
         hint.numberOfLines = 0
-        hint.text = "每一次经历都将成为你美好的回忆.\n这里可以记录人生的点滴.\n开启记录吧.."
+        hint.text = NSLocalizedString("homeHint", comment: "homeHint")
         hint.font = UIFont(name: "DINAlternate-Bold", size: 16)
         hint.textAlignment = .left
         hint.textColor = UIColor.hex(0x8e8e93)
@@ -61,7 +61,7 @@ class HomeViewController: FCFBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "笔记"
+        title = NSLocalizedString("笔记", comment: "笔记")
         initUI()
     }
     
@@ -165,9 +165,6 @@ extension HomeViewController {
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
         
-//        let vc = DiaryEditVC()
-//        vc.hidesBottomBarWhenPushed = true
-//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -211,7 +208,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 tempL = lb
             }else{
                 let lb = UILabel(frame: CGRect(x: 0, y: 0, width: WIDTH, height: 30))
-                lb.text = "年月"
+                lb.text = ""
                 lb.font = UIFont.systemFont(ofSize: 12)
                 lb.textColor = UIColor.hex("8a8a8a")
                 lb.tag = 10

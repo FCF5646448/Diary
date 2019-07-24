@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by 冯才凡 on 2019/7/23.
+  Copyright © 2019 冯才凡. All rights reserved.
+*/
+"笔记" = "note";
+
+"storys" = "Histoire";
+
+"homeHint" = "Chaque expérience sera un bon souvenir pour vous. \nVous pouvez enregistrer un peu de la vie ici. \n Ouvrir l’enregistrement ..";
+"storyHint" = "Il sera rempli de souvenirs et de surprises, transformant la vie en histoires. \nStocker dans un livre, savourer lentement. \nJ'ai une histoire, avez-vous du vin?";
+
+"保存" = "enregistrer";
+"添加" = "Ajouter";
+
+
+"故事名称" = "Nom de l'histoire";
+"故事描述" = "Description de l'histoire";
+
+"故事名称PH" = "Par exemple: notes d'amour (pas plus de 20 mots)";//例如：恋爱笔记 (不超过20字)
+"故事描述PH" = "S'il vous plaît remplir les détails (pas plus de 60 mots)";//请填写详情(不超过60字)
+
+"修改成功!" = "Modifié avec succès!";
+"添加成功!" = "Ajouté avec succès!";
+"请确保标题和描述完整" = "Assurez-vous que le titre et la description sont complets";
+"请确保60字以内" = "S'il vous plaît assurez-vous d'être dans les 60 mots";
+"请确保标题和正文完整" = "Assurez-vous que le titre et le corps sont complets";
+
+"DiaryEditTitlePH" = "Titre (pas plus de 30 mots)"; //标题(不超过30字)
+
+"DiaryEditDesPH" = "Corps"; //正文
+
+"共" = "Total";
+"集" = "Ensemble";
+
+"删除成功!" = "Supprimé avec succès";
+"删除" = "Supprimer";
+"返回" = "Retour";
+"当前没有任何小故事哦, \n赶紧添加吧..." = "Il n’ya pas d’histoires courtes, \npresses-toi d’ajouter ...";

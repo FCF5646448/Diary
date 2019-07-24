@@ -13,7 +13,7 @@ class StoryListVC: FCFBaseViewController {
     
     lazy var hintLabel:UILabel = {
         let lb = UILabel(frame: CGRect(x: 0, y: (HEIGHT-60)/2.0 , width: WIDTH, height: 60))
-        lb.text = "当前没有任何小故事哦\n，赶紧添加吧..."
+        lb.text = NSLocalizedString("当前没有任何小故事哦, \n赶紧添加吧...", comment: "当前没有任何小故事哦, \n赶紧添加吧...")
         lb.numberOfLines = 0
         lb.textAlignment = .center
         lb.font = UIFont.systemFont(ofSize: 14)
@@ -51,7 +51,7 @@ class StoryListVC: FCFBaseViewController {
     let rowHeight: CGFloat = 110// 表格行高
     
     
-    var titleStr = "详情"
+    var titleStr = ""
     var story:StoryBookItem! {
         didSet{
             self.titleStr = self.story.title
@@ -114,7 +114,7 @@ extension StoryListVC {
         leftBtn = UIButton(type: .custom)
         leftBtn.frame = CGRect(x: 0, y: kNavBarHeight - 44, width: 44, height: 44)
         leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        leftBtn.setTitle("返回", for: .normal)
+        leftBtn.setTitle(NSLocalizedString("返回", comment: "返回"), for: .normal)
         leftBtn.setTitleColor(UIColor.white, for: .normal)
         leftBtn.addTarget(self, action: #selector(returnBtnClicked), for: .touchUpInside)
         leftBtn.backgroundColor = UIColor.hex(MainColor)
@@ -124,9 +124,9 @@ extension StoryListVC {
         
         rightBtn = UIButton(frame: CGRect(x: WIDTH - 44 - 10, y: kNavBarHeight - 44, width: 44, height: 44))
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        rightBtn.setTitle("删除", for: .normal)
+        rightBtn.setTitle(NSLocalizedString("删除", comment: "删除"), for: .normal)
         rightBtn.setTitleColor(UIColor.white, for: .normal)
-        rightBtn.addTarget(self, action: #selector(returnBtnClicked), for: .touchUpInside)
+        rightBtn.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
         view.addSubview(rightBtn)
         
         // 首先创建一个滚动视图，图片还是tableView都放在这个滚动视图中
@@ -192,19 +192,23 @@ extension StoryListVC {
 
 extension StoryListVC {
     @objc func returnBtnClicked(){
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    @objc func deleteAction(){
         self.story!.delete {[weak self] (result) in
             guard let `self` = self else {return}
             if result {
-                let alertController = UIAlertController(title: "删除成功!",
+                let alertController = UIAlertController(title: NSLocalizedString("删除成功!", comment: "删除成功!"),
                                                         message: nil, preferredStyle: .alert)
                 self.present(alertController, animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                     self.presentedViewController?.dismiss(animated: false, completion: nil)
                     self.navigationController?.popViewController(animated: true)
                 }
             }
         }
-        
     }
     
     @objc func addBtnAction() {

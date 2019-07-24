@@ -12,9 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryEditVC" customModule="Diary" customModuleProvider="target">
             <connections>
+                <outlet property="desHIntL" destination="bHa-3v-ztY" id="k6C-Nd-KTk"/>
                 <outlet property="desPlaceHolder" destination="rhs-qK-SVJ" id="ixQ-QH-FFF"/>
                 <outlet property="desTF" destination="s2t-SJ-U0T" id="UyQ-Tg-zyw"/>
                 <outlet property="screenImg" destination="ezl-Gd-CBg" id="qwU-Qz-WDU"/>
+                <outlet property="titleHintL" destination="Iuw-kv-Wm3" id="0lX-E6-lMy"/>
                 <outlet property="titleTF" destination="K5E-uo-S4t" id="9hl-jd-KYA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

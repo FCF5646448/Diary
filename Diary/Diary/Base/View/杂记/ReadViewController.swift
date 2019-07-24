@@ -26,7 +26,7 @@ class ReadViewController: FCFBaseViewController {
         
         let hint = UILabel(frame: CGRect(x: 0, y: imgv.bottom + 10, width: imgW, height: hintH))
         hint.numberOfLines = 0
-        hint.text = "这里会满载回忆和惊喜，将生活化为一个个点滴故事，\n收纳成册，慢慢回味.\n我有故事，你,有酒吗？"
+        hint.text = NSLocalizedString("storyHint", comment: "storyHint")
         hint.font = UIFont(name: "DINAlternate-Bold", size: 16)
         hint.textAlignment = .left
         hint.textColor = UIColor.hex(0x8e8e93)
@@ -39,7 +39,7 @@ class ReadViewController: FCFBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "故事集"
+        title = NSLocalizedString("storys", comment: "storys")
         initUI()
     }
     
@@ -52,7 +52,7 @@ class ReadViewController: FCFBaseViewController {
 extension ReadViewController {
     func initUI() {
         let btn = UIButton(type: .custom)
-        btn.setTitle("添加", for: .normal)
+        btn.setTitle(NSLocalizedString("添加", comment: "添加"), for: .normal)
         btn.addTarget(self, action: #selector(addBtnAction), for: .touchUpInside)
         let rightBaritem = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = rightBaritem
@@ -122,7 +122,7 @@ extension ReadViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let m = self.dataSource[indexPath.row]
             cell.bgImag.image = UIImage(named: m.imgName)
             cell.nameL.text = m.title
-            cell.detailL.text = "—— 共\(m.storys.count)集 ——"
+            cell.detailL.text =  "—— \(NSLocalizedString("共", comment: "共"))\(m.storys.count)\(NSLocalizedString("集", comment: "集")) ——"
             cell.desL.text =  m.des
             cell.timeL.text = timeToDStr(TimeInterval(m.time))
         }

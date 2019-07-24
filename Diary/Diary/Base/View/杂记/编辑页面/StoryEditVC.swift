@@ -10,7 +10,9 @@ import UIKit
 import RealmSwift
 
 class StoryEditVC: FCFBaseViewController {
+    @IBOutlet weak var titleHintL: UILabel!
     @IBOutlet weak var titleTF: UITextField!
+    @IBOutlet weak var desHIntL: UILabel!
     @IBOutlet weak var desTF: UITextView!
     @IBOutlet weak var screenImg: UIImageView!
     @IBOutlet weak var desPlaceHolder: UILabel!
@@ -28,10 +30,16 @@ class StoryEditVC: FCFBaseViewController {
     func initUI() {
         self.desTF.delegate = self
         let btn = UIButton(type: .custom)
-        btn.setTitle("保存", for: .normal)
+        btn.setTitle(NSLocalizedString("保存", comment: "保存"), for: .normal)
         btn.addTarget(self, action: #selector(saveBtnAction), for: .touchUpInside)
         let baritem = UIBarButtonItem(customView: btn)
         self.navigationItem.rightBarButtonItem = baritem
+        
+        titleHintL.text = NSLocalizedString("故事名称", comment: "故事名称")
+        desHIntL.text = NSLocalizedString("故事描述", comment: "故事描述")
+        
+        titleTF.placeholder = NSLocalizedString("故事名称PH", comment: "故事名称Placehold")
+        desPlaceHolder.text = NSLocalizedString("故事描述PH", comment: "故事描述Placehold")
         
     }
     
@@ -51,10 +59,10 @@ class StoryEditVC: FCFBaseViewController {
                     }
                 }
                 
-                let alertController = UIAlertController(title: "修改成功!",
+                let alertController = UIAlertController(title: NSLocalizedString("修改成功!", comment: "修改成功!"),
                                                         message: nil, preferredStyle: .alert)
                 self.present(alertController, animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                     self.presentedViewController?.dismiss(animated: false, completion: nil)
                 }
                 return
@@ -69,17 +77,17 @@ class StoryEditVC: FCFBaseViewController {
             
             self.itemStory = itemStory
             
-            let alertController = UIAlertController(title: "添加成功!",
+            let alertController = UIAlertController(title: NSLocalizedString("添加成功!", comment: "添加成功!"),
                                                     message: nil, preferredStyle: .alert)
             self.present(alertController, animated: true, completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                 self.presentedViewController?.dismiss(animated: false, completion: nil)
             }
         }else{
-            let alertController = UIAlertController(title: "请确保标题和描述完整",
+            let alertController = UIAlertController(title: NSLocalizedString("请确保标题和描述完整", comment: "请确保标题和描述完整"),
                                                     message: nil, preferredStyle: .alert)
             self.present(alertController, animated: true, completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                 self.presentedViewController?.dismiss(animated: false, completion: nil)
             }
         }
@@ -111,10 +119,10 @@ extension StoryEditVC:UITextViewDelegate {
         if let des = textView.text, des.count > 60 {
             let subStr = String(des[..<des.index(before: des.index(des.startIndex, offsetBy: 60))])
             self.desTF.text = subStr
-            let alertController = UIAlertController(title: "请确保60字以内",
+            let alertController = UIAlertController(title: NSLocalizedString("请确保60字以内", comment: "请确保60字以内"),
                                                     message: nil, preferredStyle: .alert)
             self.present(alertController, animated: true, completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
                 self.presentedViewController?.dismiss(animated: false, completion: nil)
             }
         }

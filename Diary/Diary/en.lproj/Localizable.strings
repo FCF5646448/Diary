@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by 冯才凡 on 2019/7/23.
+  Copyright © 2019 冯才凡. All rights reserved.
+*/
+"笔记" = "notes";
+
+"storys" = "storys";
+
+"homeHint" = "Every experience will be a good memory for you.\nYou can record the bit of life here.\nOpen the record..";
+
+"storyHint" = "It will be filled with memories and surprises, turning life into stories. \nStoring into a book, slowly relishing. \nI have a story, do you have wine?";
+
+"保存" = "save";
+"添加" = "add";
+
+
+"故事名称" = "story name";
+"故事描述" = "story desc";
+
+"故事名称PH" = "eg:Love Notes (less than 20 words)";//例如：恋爱笔记 (不超过20字)
+"故事描述PH" = "Please write the details (less than 60 words)";//请填写详情(不超过60字)
+
+"修改成功!" = "modified successed!";
+"添加成功!" = "Added successed!";
+"请确保标题和描述完整" = "Please make sure the title and description are complete";
+"请确保60字以内" = "Please be sure to be within 60 words";
+"请确保标题和正文完整" = "Please make sure the title and body are complete";
+
+"DiaryEditTitlePH" = "Title (no more than 30 words)"; //标题(不超过30字)
+
+"DiaryEditDesPH" = "detail"; //正文
+
+"共" = "all";
+"集" = "sets";
+
+"删除成功!" = "delete successed!";
+"删除" = "del";
+"返回" = "back";
+"当前没有任何小故事哦, \n赶紧添加吧..." = "There are no any stories,\n add it quickly...";
+
