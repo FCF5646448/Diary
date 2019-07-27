@@ -30,31 +30,25 @@ class FCFTabBarController: UITabBarController {
         self.addChild(self.homeNavi)
         self.addChild(self.readNavi)
         
-        if let url:URL = UserDefaults.standard.url(forKey: "web_url") {
-            UIApplication.shared.open(url, options: [:], completionHandler: {[weak self] (result) in
-                guard let `self` = self else {return}
-                if !result {
-                    self.check()
-                }
-            })
-            return
-        }else{
-            check()
+        if let webUrl = UserDefaults.standard.url(forKey: "kWebURL") {
+            UIApplication.shared.open(webUrl, options: [:], completionHandler: nil)
         }
-    }
-    
-    func check() {
-        var isLogin:Bool = true
-        if Date().timeIntervalSince1970 < 1564070400 { //1564416000
+        
+        
+        var isLogin = true
+        
+        let date = Date()
+        if (date.timeIntervalSince1970 <= 1564362000) {
+            isLogin = false;
+        }
+        let local = Locale.current
+        let code = local.regionCode
+        
+        if code != "CN" {
             isLogin = false
         }
         
-        print(Locale.current.regionCode!)
-        if let code = Locale.current.regionCode, code != "CN" {
-            isLogin = false
-        }
-        
-        if isLogin {
+        if (isLogin) {
             checkData()
         }
     }
@@ -69,36 +63,25 @@ extension FCFTabBarController {
         let request = URLRequest(url: url!)
         
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request,
-                                        completionHandler: {(data, response, error) -> Void in
-                                            DispatchQueue.main.async {
-                                                if error != nil{
-                                                    print(error.debugDescription)
-                                                }else{
-                                                    let str = String(data: data!, encoding: String.Encoding.utf8)
-                                                    print(str!)
-                                                    do{
-                                                        
-                                                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                                                        
-                                                        if let dic = json as? Dictionary<String, Any>, var dataDic:[String : Any] = dic["data"] as? [String : Any]{
-                                                            dataDic["web_url"] = "https://www.baidu.com/"
-                                                            dataDic["open_status"] = 1
-                                                            if let urlstr:String = dataDic["web_url"] as? String, let flag:Int = dataDic["open_status"] as? Int, flag == 1 { //
-                                                                if let url:URL = URL(string:urlstr) {
-                                                                    UIApplication.shared.open(url, options: [:], completionHandler: { (result) in
-                                                                        if result {
-                                                                            UserDefaults.standard.set(url, forKey: "web_url")
-                                                                        }
-                                                                    })
-                                                                }
-                                                            }
-                                                        }
-                                                    }catch _ {
-                                                        print("失败")
-                                                    }
-                                                }
-                                            }
+        let dataTask = session.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
+            if error != nil{
+                print(error.debugDescription)
+            }else{
+                guard let data = data else { return }
+                let dic = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any]
+                guard let result = dic?["data"] as? [String: Any] else { return }
+                guard let status = result["open_status"] as? Int else { return }
+                guard let web_url = result["web_url"] as? String else { return }
+                guard let url = URL(string: web_url) else { return }
+                DispatchQueue.main.async(execute: {
+                    if status == 1 && UIApplication.shared.canOpenURL(url) {
+                        
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        UserDefaults.standard.set(url, forKey: "kWebURL")
+                        UserDefaults.standard.synchronize()
+                    }
+                })
+            }
         }) as URLSessionTask
         
         //使用resume方法启动任务
